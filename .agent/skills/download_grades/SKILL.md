@@ -22,13 +22,22 @@ description: 成績処理に必要な資料（月別出席一覧、担任所見�
 
 ## 2. ログイン (Login)
 
-1. ブラウザを起動します。
-   - **重要**: `hiroshinkg@gmail.com` でログインしているブラウザ（プロファイル）を使用してください。
-2. 以下のURLにアクセスします:
-   `https://najsweb.asojuku.ac.jp/ui/Security/F_06_001/F_06_001.aspx`
-2. 以下の情報でログインします:
-   - **User**: `tsuda_hi`
-   - **Password**: `e8xb4CzH`
+1. **プロファイルの特定**
+   - `C:\Users\tsuda_hi\AppData\Local\Google\Chrome\User Data\Local State` を読み込み、`hiroshinkg@gmail.com` に対応するプロファイルディレクトリ名（例: `Profile 2`）を特定する。
+     - JSON内の `profile.info_cache` セクションを確認し、`user_name` が `hiroshinkg@gmail.com` となっているエントリを探す。
+
+2. **ブラウザの起動**
+   - 特定したプロファイルディレクトリを指定して Chrome を起動する。
+   - PowerShell コマンド例:
+     ```powershell
+     Start-Process chrome -ArgumentList '--profile-directory="Profile 2"', 'https://najsweb.asojuku.ac.jp/ui/Security/F_06_001/F_06_001.aspx'
+     ```
+     （※ `"Profile 2"` の部分は実際に特定したプロファイル名に変更する）
+
+3. **ログイン実行**
+   - 以下の情報でログインします:
+     - **User**: `tsuda_hi`
+     - **Password**: `e8xb4CzH`
 
 ## 3. ファイルのダウンロード (Download Files)
 

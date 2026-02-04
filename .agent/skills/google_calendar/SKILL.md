@@ -7,11 +7,22 @@ description: hiroshinkg@gmail.comのGoogleカレンダーに予定を登録す�
 
 ユーザーの指示に従い、`hiroshinkg@gmail.com` のGoogleカレンダーに予定を追加します。
 
-## アカウント確認
-1. https://calendar.google.com/ にアクセスする。
-2. 現在ログインしているアカウントが `hiroshinkg@gmail.com` であることを確認する。
-   - アイコンのツールチップやアカウントメニューで確認する。
-   - 異なる場合はアカウントスイッチャーで切り替える。
+## ブラウザ起動とアカウント確認
+
+1. **プロファイルの特定**
+   - `C:\Users\tsuda_hi\AppData\Local\Google\Chrome\User Data\Local State` を読み込み、`hiroshinkg@gmail.com` に対応するプロファイルディレクトリ名（例: `Profile 2`）を特定する。
+     - JSON内の `profile.info_cache` セクションを確認し、`user_name` が `hiroshinkg@gmail.com` となっているエントリを探す。
+
+2. **ブラウザの起動**
+   - 特定したプロファイルディレクトリを指定して Chrome を起動する。
+   - PowerShell コマンド例:
+     ```powershell
+     Start-Process chrome -ArgumentList '--profile-directory="Profile 2"', 'https://calendar.google.com/'
+     ```
+     （※ `"Profile 2"` の部分は実際に特定したプロファイル名に変更する）
+
+3. **アカウント確認**
+   - 起動したブラウザで、ログイン中のアカウントが `hiroshinkg@gmail.com` であることを確認する。
 
 ## 予定の作成手順
 
